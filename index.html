@@ -1,40 +1,106 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <title>Contacto</title>
+<meta charset="UTF-8">
+<title>Contacto</title>
+
+<style>
+    body {
+        font-family: 'Segoe UI', sans-serif;
+        background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0;
+    }
+
+    .card {
+        background: white;
+        padding: 30px;
+        border-radius: 20px;
+        box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        text-align: center;
+        animation: aparecer 0.8s ease;
+    }
+
+    h2 {
+        color: #ff4d6d;
+    }
+
+    input {
+        width: 100%;
+        padding: 10px;
+        margin: 10px 0;
+        border-radius: 10px;
+        border: 2px solid #ddd;
+        transition: 0.3s;
+    }
+
+    input:focus {
+        border-color: #ff4d6d;
+        outline: none;
+        transform: scale(1.05);
+    }
+
+    button {
+        background: #ff4d6d;
+        color: white;
+        border: none;
+        padding: 12px;
+        border-radius: 10px;
+        cursor: pointer;
+        width: 100%;
+        font-size: 16px;
+        transition: 0.3s;
+    }
+
+    button:hover {
+        background: #e63950;
+        transform: scale(1.05);
+    }
+
+    #mensaje {
+        margin-top: 15px;
+        color: green;
+        font-weight: bold;
+        display: none;
+        animation: aparecer 0.5s ease;
+    }
+
+    @keyframes aparecer {
+        from {opacity: 0; transform: translateY(-10px);}
+        to {opacity: 1; transform: translateY(0);}
+    }
+</style>
+
 </head>
 <body>
 
-    <h2>Formulario de Contacto</h2>
+<div class="card">
+    <h2>💌 Contacto</h2>
 
     <form id="formContacto">
-        <label>Nombre:</label><br>
-        <input type="text" required><br><br>
-
-        <label>Apellido:</label><br>
-        <input type="text" required><br><br>
-
-        <label>Teléfono:</label><br>
-        <input type="tel" required><br><br>
+        <input type="text" placeholder="Nombre" required>
+        <input type="text" placeholder="Apellido" required>
+        <input type="tel" placeholder="Teléfono" required>
 
         <button type="submit">Enviar</button>
     </form>
 
-    <p id="mensaje" style="color: green; display: none;">
-        ✅ ¡Formulario enviado correctamente!
-    </p>
+    <p id="mensaje">✅ ¡Enviado correctamente!</p>
+</div>
 
-    <script>
-        const form = document.getElementById("formContacto");
-        const mensaje = document.getElementById("mensaje");
+<script>
+    const form = document.getElementById("formContacto");
+    const mensaje = document.getElementById("mensaje");
 
-        form.addEventListener("submit", function(e) {
-            e.preventDefault(); // evita recargar la página
-            mensaje.style.display = "block";
-            form.reset();
-        });
-    </script>
+    form.addEventListener("submit", function(e) {
+        e.preventDefault();
+        mensaje.style.display = "block";
+        form.reset();
+    });
+</script>
 
 </body>
 </html>
